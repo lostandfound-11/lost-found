@@ -798,3 +798,75 @@ opacity:.6;
     }
 
 }
+/* ================= CLIENTS ================= */
+
+.clients-section{
+    background:#000;
+    color:#fff;
+    padding:120px 8%;
+}
+
+.clients-content{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+.clients-content h2{
+    font-size:4rem;
+    margin-bottom:20px;
+    letter-spacing:3px;
+}
+
+.clients-content p{
+    color:#aaa;
+    margin-bottom:70px;
+}
+
+/* Grid */
+
+.clients-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:60px;
+    align-items:center;
+    justify-items:center;
+}
+
+/* Logo */
+
+.client-logo{
+    transition:.4s ease;
+}
+
+.client-logo img{
+    width:180px;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+    filter:grayscale(100%) opacity(.8);
+    transition:.4s ease;
+}
+
+.client-logo:hover{
+    transform:translateY(-10px) scale(1.08);
+}
+
+.client-logo:hover img{
+    filter:grayscale(0%) opacity(1);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.clients-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+}
+
+.client-logo img{
+    width:130px;
+}
+
+}

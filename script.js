@@ -305,3 +305,37 @@ document.getElementById("videoModal").onclick=function(e){
     }
 
 }
+
+// ==================== HAMBURGER MENU ====================
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    if (!menuBtn || !closeBtn || !sidebar || !overlay) {
+        console.log("Menu elements not found");
+        return;
+    }
+
+    menuBtn.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        sidebar.classList.add("active");
+        overlay.classList.add("active");
+    };
+
+    closeBtn.onclick = function () {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+    };
+
+    overlay.onclick = function () {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+    };
+
+});
