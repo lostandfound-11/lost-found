@@ -4,60 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lost & Found Productions</title>
+<!-- SEO -->
+<title>Lost & Found Productions | Theatre & Film Production</title>
+
+<meta name="description" content="Lost & Found Productions is a creative production house in Ahmedabad specializing in theatre productions, films, advertisements, music videos, and audio post-production.">
+
+<meta name="keywords" content="Lost & Found Productions, Theatre Production Ahmedabad, Film Production Ahmedabad, Production House, Theatre, Films">
+
+<meta name="author" content="Lost & Found Productions">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://lostandfoundproductions.com/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/images/favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Lost & Found Productions">
+<meta property="og:description" content="Theatre Productions • Film Productions • Creative Storytelling">
+<meta property="og:image" content="https://lostandfoundproductions.com/logo.png">
+<meta property="og:url" content="https://lostandfoundproductions.com/">
+<meta property="og:type" content="website">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lost & Found Productions">
+<meta name="twitter:description" content="Theatre Productions • Film Productions • Creative Storytelling">
+<meta name="twitter:image" content="https://lostandfoundproductions.com/logo.png">
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
-<style>
-    /* ================= NAVBAR ================= */
-
-.navbar{
-    position: sticky;      /* Keeps navbar visible */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 60px;
-    box-sizing: border-box;
-
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    z-index: 99999;
-}
-.nav-logo img{
-    height:50px;
-    width:auto;
-    display:block;
-}
-
-.nav-links{
-    display:flex;
-    gap:40px;
-    list-style:none;
-    margin:0;
-    padding:0;
-}
-
-.nav-links a{
-    color:var(--text);
-    text-decoration:none;
-    font-size:17px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    opacity:.7;
-}
-</style>
 </head>
 
 <body class="dark">
@@ -74,6 +52,11 @@
         <li><a href="index.html#clients">Clients</a></li>
         <li><a href="index.html#contact">Contact</a></li>
     </ul>
+     <div class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 <!-- ================= MAIN WEBSITE ================= -->
 
@@ -237,24 +220,34 @@
             audition opportunity, or any questions, feel free to get in touch with us.
         </p>
 
-        <div class="contact-info">
+      <div class="contact-info">
 
-            <div class="contact-item">
-                <h3>Email</h3>
-                <p>workwithlostandfound@gmail.com</p>
-            </div>
+    <div class="contact-item">
+    <h3>Email</h3>
+    <p>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=workwithlostandfound@gmail.com"
+           target="_blank"
+           rel="noopener noreferrer">
+            workwithlostandfound@gmail.com
+        </a>
+    </p>
+</div>
 
-            <div class="contact-item">
-                <h3>Phone</h3>
-                <p>+91 7600 742 212</p>
-            </div>
+    <div class="contact-item">
+        <h3>Phone</h3>
+        <p>
+            <a href="tel:+917600742212">
+                +91 7600 742 212
+            </a>
+        </p>
+    </div>
 
-            <div class="contact-item">
-                <h3>Location</h3>
-                <p>Ahmedabad, Gujarat, India</p>
-            </div>
+    <div class="contact-item">
+        <h3>Location</h3>
+        <p>Ahmedabad, Gujarat, India</p>
+    </div>
 
-        </div>
+</div>
 
     </div>
 
@@ -265,7 +258,29 @@
 © 2026 lost & Found
 
 </footer>
+<script>const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
 
+menuBtn.addEventListener("click", () => {
+
+    menuBtn.classList.toggle("active");
+
+    navLinks.classList.toggle("active");
+
+});
+
+// Close menu after clicking a link
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        menuBtn.classList.remove("active");
+        navLinks.classList.remove("active");
+
+    });
+
+});</script>
 
 <!-- GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>

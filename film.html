@@ -19,53 +19,6 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* ================= NAVBAR ================= */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:80px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 60px;
-
-    background:rgba(0,0,0,.25);
-    backdrop-filter:blur(18px);
-
-    z-index:1000;
-    box-sizing:border-box;
-}
-
-.nav-logo img{
-    height:50px;
-    width:auto;
-    display:block;
-}
-
-.nav-links{
-    display:flex;
-    gap:40px;
-    list-style:none;
-    margin:0;
-    padding:0;
-}
-
-.nav-links a{
-    color:var(--text);
-    text-decoration:none;
-    font-size:17px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    opacity:.7;
-}
 /* Hide scrollbar but keep scrolling */
 
 html, body{
@@ -248,64 +201,6 @@ text-align:center;
 opacity:.6;
 }
 
-@media (max-width:768px){
-
-    .navbar{
-        height:auto;
-        padding:15px 20px;
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .nav-logo img{
-        height:40px;
-    }
-
-    .nav-links{
-        gap:20px;
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .nav-links a{
-        font-size:15px;
-    }
-
-    header{
-        min-height:100vh;
-        padding:100px 20px 40px;
-    }
-
-    header h1{
-        font-size:48px;
-        letter-spacing:-2px;
-    }
-
-    header p{
-        font-size:18px;
-    }
-
-    section{
-        padding:70px 20px;
-    }
-
-    .title{
-        font-size:32px;
-        text-align:center;
-    }
-
-    .awards{
-        flex-direction:column;
-    }
-
-    .award{
-        width:100%;
-    }
-
-    .gallery{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
 /* Page enters from right */
 body{
     animation: revealFromRight .9s cubic-bezier(.77,0,.18,1);
@@ -501,14 +396,20 @@ PRODUCT PHOTOSHOOT
 <nav class="navbar">
 
     <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="Dhruvraj Chauhan Logo">
+        <img src="logo.png" alt="">
     </a>
 
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#clients">Clients</a></li>
         <li><a href="index.html#contact">Contact</a></li>
     </ul>
+     <div class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 
 
@@ -1034,6 +935,29 @@ const observer = new IntersectionObserver((entries)=>{
 
 photoCards.forEach(card=>observer.observe(card));
 </script>
+<script>const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+
+    menuBtn.classList.toggle("active");
+
+    navLinks.classList.toggle("active");
+
+});
+
+// Close menu after clicking a link
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        menuBtn.classList.remove("active");
+        navLinks.classList.remove("active");
+
+    });
+
+});</script>
 <script src="script.js"></script>
 
 </body>

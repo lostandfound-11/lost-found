@@ -83,7 +83,7 @@ body{
 .container{
 
     width:100%;
-    height:100vh;
+      min-height:100svh; /* or 100dvh */
 
     display:flex;
 
@@ -96,7 +96,7 @@ body{
 .panel{
 
     width:100%;
-    height:100vh;
+    height:100svh;
 
     display:flex;
     justify-content:center;
@@ -176,21 +176,7 @@ h1{
     text-align:center;
 }
 
-/*.cursor{
-    display:inline-block;
-    margin-left:2px;
-    font-weight:700;
-    animation:blink 0.8s infinite;
-}
 
-@keyframes blink{
-    0%,50%{
-        opacity:1;
-    }
-    50.01%,100%{
-        opacity:0;
-    }
-}
 /* ===========================
    PANEL GLOW
 =========================== */
@@ -214,59 +200,8 @@ transition:.6s;
 }
 
 .panel:hover::before{
-
-opacity:1;
-
+    opacity:1;
 }
-/* ===========================
-   DIAGONAL LINE
-=========================== 
-
-.divider{
-
-    position:absolute;
-
-    left:50%;
-
-    top:-25%;
-
-    width:2px;
-
-    height:160%;
-
-    background:var(--line);
-
-    transform:rotate(0deg);
-
-    transform-origin:center;
-
-    z-index:0;
-
-    animation:lineMove 5s ease-in-out infinite;
-
-}
-
-@keyframes lineMove{
-
-0%{
-
-transform:rotate(0deg);
-
-}
-
-50%{
-
-transform:rotate(0deg);
-
-}
-
-100%{
-
-transform:rotate(0deg);
-
-}
-
-}*/
 
 /* ===========================
    PANEL GLOW
@@ -519,12 +454,13 @@ body.page-exit{
 @media(max-width:768px){
 
     .logo{
-        top:18px;
-    }
+    left:50%;
+    transform:translateX(-50%);
+}
 
-    .logo img{
-        width:100px;
-    }
+.logo img{
+    width:70px;
+}
 
 }
 
@@ -704,18 +640,20 @@ opacity:.6;
 
     .container{
         flex-direction:column;
-        height:100vh;
+         min-height:100svh; /* or 100dvh */
+         height:auto;
     }
 
     .panel{
         height:50vh;
     }
 
-    h1{
-        font-size:32px;
-        line-height:1.1;
-    }
+   h1{
 
+font-size:24px;
+padding:0 20px;
+
+}
     .logo img{
         width:90px;
     }
@@ -739,8 +677,9 @@ opacity:.6;
     }
 
     .about-content h2,
-    .contact-content h2{
-        font-size:38px;
+    .contact-content h2,
+    .clients-content h2{
+        font-size:32px;
         letter-spacing:2px;
         margin-bottom:20px;
     }
@@ -867,6 +806,240 @@ opacity:.6;
 
 .client-logo img{
     width:130px;
+}
+
+}
+
+@media(max-width:480px){
+
+.clients-grid{
+
+grid-template-columns:1fr;
+gap:30px;
+
+}
+
+.client-logo img{
+
+width:120px;
+
+}
+
+}
+@media (hover:none){
+
+.panel:hover{
+flex:1;
+background:inherit;
+}
+
+.left:hover h1,
+.right:hover h1{
+color:#fff;
+transform:none;
+}
+
+.client-logo:hover,
+.contact-item:hover{
+transform:none;
+}
+
+}
+/* ===========================
+   MOBILE - THEME BUTTON
+=========================== */
+
+@media (max-width:768px){
+
+    #theme-toggle{
+        top:15px;
+        right:15px;
+
+        width:42px;
+        height:42px;
+
+        font-size:16px;
+    }
+
+}
+@media (max-width:480px){
+
+    #theme-toggle{
+        top:12px;
+        right:12px;
+
+        width:38px;
+        height:38px;
+
+        font-size:14px;
+    }
+
+}
+
+  /* ================= NAVBAR ================= */
+
+.navbar{
+
+    position:sticky;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(15px);
+
+    z-index:9999;
+}
+
+.nav-logo img{
+
+    height:55px;
+
+}
+
+/* Desktop */
+
+.nav-links{
+
+    display:flex;
+    gap:40px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    color:#fff;
+    text-decoration:none;
+    font-size:17px;
+    transition:.35s;
+
+}
+
+.nav-links a:hover{
+
+    opacity:.6;
+
+}
+
+/* Hamburger */
+
+.menu-btn{
+
+    width:34px;
+    height:26px;
+
+    display:none;
+
+    flex-direction:column;
+    justify-content:space-between;
+
+    cursor:pointer;
+
+}
+
+.menu-btn span{
+
+    width:100%;
+    height:3px;
+
+    background:white;
+
+    border-radius:10px;
+
+    transition:.35s;
+
+}
+
+/* Animation */
+
+.menu-btn.active span:nth-child(1){
+
+    transform:translateY(11px) rotate(45deg);
+
+}
+
+.menu-btn.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.menu-btn.active span:nth-child(3){
+
+    transform:translateY(-11px) rotate(-45deg);
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.navbar{
+
+    padding:0 20px;
+
+    height:70px;
+
+}
+
+.nav-logo img{
+
+    height:45px;
+
+}
+
+.menu-btn{
+
+    display:flex;
+
+}
+
+.nav-links{
+
+    position:fixed;
+
+    top:70px;
+    right:-100%;
+
+    width:270px;
+    height:calc(100vh - 70px);
+
+    background:#050505;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    padding-top:60px;
+
+    gap:35px;
+
+    transition:.4s ease;
+
+}
+
+.nav-links.active{
+
+    right:0;
+
+}
+
+.nav-links a{
+
+    font-size:20px;
+
 }
 
 }
